@@ -7,6 +7,7 @@
       <th>Epsodio</th>
       <th>Diretor</th>
       <th>Ano do Filme</th>
+      <th>Like</th>
     </tr>
     </thead>
     <tbody>
@@ -23,6 +24,37 @@
         </td>
         <td>
           <%= movie["release_date"].to_date.strftime("%Y") %>
+        </td>
+        <td>
+          <% if Like.find_by(user: current_user, episode_id: movie["episode_id"]) %>
+            <%= link_to 'Unlike', unlike_path(:episode_id => movie["episode_id"]) %>
+          <% else %>
+            <%= link_to 'Like', like_path(:episode_id => movie["episode_id"]) %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <h1 class="text-center margin-div">Likes dos Filmes</h1>
+  <table class="table table-bordered table-striped table-hover table-sm margin-div">
+    <thead class="thead-dark">
+    <tr>
+      <th>Epsodio</th>
+      <th>Likes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td>
+          <%= movie["title"] %>
+        </td>
+        <td>
+          <%= Like.where(episode_id: movie["episode_id"]).count %>
         </td>
       </tr>
     <% end %>
