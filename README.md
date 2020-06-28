@@ -1,24 +1,35 @@
-# README
+## Configuração
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Clone o projeto
 
-Things you may want to cover:
+```sh
+$ git clone https://github.com/pedrohcrisanto/sw_vote.git
+```
 
-* Ruby version
+Instale as dependências
+```sh
+$ cd /sw_vote/
+$ bundle install
+```
 
-* System dependencies
+Crie o banco, migre as tabelas
+```sh
+$ rails db:create db:migrate
+```
 
-* Configuration
+Rode a aplicação
+```sh
+$ rails s
+```
 
-* Database creation
+Abra o seu navegador(de preferência Chrome ou Firefox) e navegue para `localhost:3000/`
 
-* Database initialization
+## Deploy Heroku
 
-* How to run the test suite
+https://sw-vote.herokuapp.com/
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
+## Dependências
+Ruby -v 2.7.1
+Rails -v 6.0.3
+Postgresql
