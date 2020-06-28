@@ -4,12 +4,40 @@
     <title>SwVote</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1" name="viewport">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">
+        SW-APP
+      </a>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        <span class="navbar-right">
+            <% if user_signed_in? %>
+            Logado como:
+            <strong><%= current_user.email %></strong>
+            <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'btn'  %>
+            <% else %>
+            <% end %>
+        </span>
+      </div>
+    </nav>
+  </header>
+  <% flash.each do |type, msg| %>
+  <div class="text-center alert alert-secondary">
+    <%= msg %>
+  </div>
+  <% end %>
   <body>
     <%= yield %>
   </body>
+  <footer class="page-footer font-small footer">
+    <div class="text-center py-3">
+      <p>Pedro Crisanto</p>
+    </div>
+  </footer>
 </html>

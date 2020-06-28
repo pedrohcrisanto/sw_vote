@@ -1,0 +1,31 @@
+<div class="container">
+  <h1 class="text-center margin-div">Filmes</h1>
+  <table class="table table-bordered table-striped table-hover table-sm margin-div">
+    <thead class="thead-dark">
+    <tr>
+      <th>Titulo</th>
+      <th>Epsodio</th>
+      <th>Diretor</th>
+      <th>Ano do Filme</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td>
+          <%= movie["title"] %>
+        </td>
+        <td>
+          <%= movie["episode_id"] %>
+        </td>
+        <td>
+          <%= movie["director"] %>
+        </td>
+        <td>
+          <%= movie["release_date"].to_date.strftime("%Y") %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

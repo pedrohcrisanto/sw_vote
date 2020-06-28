@@ -1,10 +1,8 @@
 class SwService
   include HTTParty
 
-  url = "https://swapi.dev/api/films?format=json"
-
   def import_data
-    response = HTTParty.get(url)
+    response = HTTParty.get("https://swapi.dev/api/films?format=json")
     response.parsed_response
   end
 end
