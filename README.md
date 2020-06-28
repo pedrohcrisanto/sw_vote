@@ -31,5 +31,7 @@ https://sw-vote.herokuapp.com/
 
 ## Dependências
 Ruby -v 2.7.1
+<br>
 Rails -v 6.0.3
+<br>
 Postgresql
